@@ -12,6 +12,10 @@ app.use(express.json());
 app.use(cors());
 const port = process.env.PORT || 4200
 
+app.get('/',(req, res)=>{
+  res.send('welcome to my server')
+})
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const furnitureCollection = client.db("furnitureStore").collection("furniture");
